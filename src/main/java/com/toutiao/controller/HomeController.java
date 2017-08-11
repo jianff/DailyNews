@@ -43,7 +43,7 @@ public class HomeController {
             ViewObject vo = new ViewObject();
             vo.set("news", news);
             vo.set("user", userService.getUserById(news.getUserId()));
-
+            vo.set("domain",ToutiaoUtil.TIOUTIAO_DOMAIN);
             if (localUserId!=0){
                 vo.set("like",likeService.getLikeStatus(localUserId, EntityType.ENTITY_NEWS,news.getId()));
             }else{
@@ -59,7 +59,7 @@ public class HomeController {
     public String index(Model model, @RequestParam(value = "pop",defaultValue = "0") int pop) {
         model.addAttribute("vos", getNews(0, 0, 10));
         model.addAttribute("pop",pop);
-        model.addAttribute("domain",ToutiaoUtil.TIOUTIAO_DOMAIN);
+
         return "home";
     }
 

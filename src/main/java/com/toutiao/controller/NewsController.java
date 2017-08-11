@@ -129,6 +129,7 @@ public class NewsController {
         model.addAttribute("comments",commentVOs);
         model.addAttribute("news",news);
         model.addAttribute("owner",userService.getUserById(news.getUserId()));
+        model.addAttribute("domain", ToutiaoUtil.TIOUTIAO_DOMAIN);
         return "detail";
     }
 
